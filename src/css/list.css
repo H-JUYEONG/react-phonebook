@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+Link {
+    text-decoration: underline;
+}
+
+#list tbody>tr>th, tbody>tr>td {
+    padding: 2px;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid #000000;
+}
+
