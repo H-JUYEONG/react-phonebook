@@ -31,13 +31,13 @@ const listForm = () => {
 				<td>02-1111-1111</td>
 			</tr>
 			<tr>
-				<td><Link to="#" rel="noreferrer noopener">수정폼으로 이동</Link></td>
+				<td><Link to="/modifyForm" rel="noreferrer noopener">수정폼으로 이동</Link></td>
 				<td><Link to="#" rel="noreferrer noopener">삭제</Link></td>
 			</tr>
 		</tbody>
 	</table>
 	<br/>
-    <Link to="" rel="noreferrer noopener">등록폼으로 이동</Link>
+    <Link to="/writeForm" rel="noreferrer noopener">등록폼으로 이동</Link>
       
     </>
   );

@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 //import css
 import "../css/reset.css";
 
-const modifyForm = () => {
+const writeForm = () => {
   return (
     <>
       <h1>전화번호부</h1>
       <br />
 
-      <h2>전화번호-수정폼</h2>
+      <h2>전화번호-등록폼</h2>
       <br />
 
-      <p>수정할 항목을 입력한 후 수정버튼을 클릭해 주세요</p>
+      <p>아래의 항목을 입력한 후 등록버튼을 클릭해 주세요</p>
       <br />
 
       <form action="" method="get">
@@ -30,13 +30,12 @@ const modifyForm = () => {
           <label htmlFor="txt-company">회사(company): </label>
           <input id="txt-company" type="text" name="company" value="" placeholder="회사" />
         </div>
-		    <input type="hidden" name="personId" value=""></input>
 		    <br/>
-		    <button type="submit">수정(전송)</button>
+		    <button type="submit">등록(전송)</button>
       </form>
 	    <br/><br/>
-	    <Link to="/listForm" rel="noreferrer noopener">리스트로 가기</Link>
+      <Link to="/listForm" rel="noreferrer noopener">리스트로 가기</Link>
     </>
   );
 };
-export default modifyForm;
+export default writeForm;
