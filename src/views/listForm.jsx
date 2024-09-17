@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import '../css/reset.css'
 import '../css/list.css'
 
-const list = () => {
+const listForm = () => {
   
   return (
     <>
@@ -36,10 +36,10 @@ const list = () => {
 			</tr>
 		</tbody>
 	</table>
-
+	<br/>
     <Link to="" rel="noreferrer noopener">등록폼으로 이동</Link>
       
     </>
   );
 };
-export default list;
+export default listForm;
