@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ListForm from './views/listForm';
-import ModifyForm from './views/modifyForm';
-import WriteForm from './views/writeForm';
+import List from './pages/List';
+import WriteForm from './pages/WriteForm';
+import EditForm from './pages/EditForm';
+
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/listform' element={<ListForm />} />
-          <Route path='/modifyform' element={<ModifyForm />} />
-          <Route path='/writeform' element={<WriteForm />} />
+          <Route path='/list' element={<List />} />
+          <Route path='/writeForm' element={<WriteForm />} />
+          <Route path='/editForm' element={<EditForm />} />
         </Routes>
       </BrowserRouter>
     </div>

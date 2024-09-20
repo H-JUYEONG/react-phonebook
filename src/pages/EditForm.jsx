@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //import css
 import "../css/reset.css";
 
-const modifyForm = () => {
+const EditForm = () => {
   return (
     <>
       <h1>전화번호부</h1>
@@ -35,8 +35,8 @@ const modifyForm = () => {
 		    <button type="submit">수정(전송)</button>
       </form>
 	    <br/><br/>
-	    <Link to="/listForm" rel="noreferrer noopener">리스트로 가기</Link>
+	    <Link to="/List" rel="noreferrer noopener">리스트로 가기</Link>
     </>
   );
 };
-export default modifyForm;
+export default EditForm;
