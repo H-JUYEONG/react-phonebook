@@ -7,7 +7,7 @@ import axios from 'axios';
 import '../css/reset.css'
 import '../css/list.css'
 
-const List = () => {
+const List2 = () => {
 
 	/*
 	// 리다이렉트 안됨 (같은 페이지의 리다이렉트는 안된다)
@@ -29,7 +29,7 @@ const List = () => {
 		}).then(response => {
 			console.log(response); //수신데이터
 			setPersonList(response.data);
-		
+
 		}).catch(error => {
 			console.log(error);
 		});	
@@ -52,7 +52,7 @@ const List = () => {
 
 		axios({
 			method: 'delete', 			// put, post, delete                   
-			url: 'http://localhost:9000/api/persons/' + no,
+			url: `http://localhost:9000/api/persons/${no}`,
 		
 			responseType: 'json' //수신타입
 		}).then(response => {
@@ -60,16 +60,31 @@ const List = () => {
 			console.log(response.data);
 
 			if(response.data.result === 'success') {
-				getPersonList();
+				/*
+				// 리다이렉트 안됨 (같은 페이지의 리다이렉트는 안된다)
+				Navigate("/list");
+				*/
+				// getPersonList();
+
+				// 리스트(배열) personList에서 방금 삭제한 값만 제거된 새로운 배열
+				let newArray = personList.filter((person) => {
+					return person.personId !== no;
+				});
+
+				setPersonList(newArray);
+
 			} else {
 				alert(response.data.message);
 			}
 
+			
+		
 		}).catch(error => {
 			console.log(error);
 		});
 		
 	};
+
   
   return (
     <>
@@ -97,7 +112,7 @@ const List = () => {
 						<td>{personVo.company}</td>
 					</tr>
 					<tr>
-						<td><Link to={'/editForm/' + personVo.personId} rel="noreferrer noopener">수정폼으로 이동</Link></td>
+						<td><Link to={`/editForm/${personVo.personId}`} rel="noreferrer noopener">수정폼으로 이동</Link></td>
 						<td><button type="button" onClick={()=>{handleDel(personVo.personId)}}>삭제</button></td>
 					</tr>
 				</tbody>
@@ -113,4 +128,4 @@ const List = () => {
     </>
   );
 };
-export default List;
+export default List2;
