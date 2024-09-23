@@ -119,7 +119,7 @@ const EditForm = () => {
       <p>수정할 항목을 입력한 후 수정버튼을 클릭해 주세요</p>
       <br />
 
-      <form action="" method="get" onSubmit={handleUpdate}>
+      <form action="" method="" onSubmit={handleUpdate}>
         <div>
           <label htmlFor="txt-name">이름(name): </label>
           <input id="txt-name" type="text" name="name" value={name} placeholder="이름" onChange={hadleName}/>
