@@ -67,9 +67,10 @@ const List2 = () => {
 				// getPersonList();
 
 				// 리스트(배열) personList에서 방금 삭제한 값만 제거된 새로운 배열
-				let newArray = personList.filter((person) => {
-					return person.personId !== no;
-				});
+				// 리턴이 있을때만 {} 를 ()로 바꾸고 retrun을 생략할 수 있음
+				let newArray = personList.filter((person) => (
+					person.personId !== no
+				));
 
 				setPersonList(newArray);
 
