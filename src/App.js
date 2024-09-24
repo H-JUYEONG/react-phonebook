@@ -4,6 +4,8 @@ import WriteForm from './pages/WriteForm';
 import EditForm from './pages/EditForm';
 
 import List2 from './pages/List2';
+import List3 from './pages/List3';
+import ItemPerson from './pages/ItemPerson';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path='/editform/:no' element={<EditForm />} />
 
           <Route path='/list2' element={<List2 />} />
+          <Route path='/list3' element={<List3 />} />
+          <Route path='/itemperson' element={<ItemPerson />} />
         </Routes>
       </BrowserRouter>
     </div>

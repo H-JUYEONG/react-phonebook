@@ -28,7 +28,7 @@ const List2 = () => {
 			responseType: 'json' //수신타입
 		}).then(response => {
 			console.log(response); //수신데이터
-			setPersonList(response.data);
+			setPersonList(response.data.apiData);
 
 		}).catch(error => {
 			console.log(error);

@@ -3,11 +3,14 @@ import React, {useEffect, useState} from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+// import 컴포넌트
+import ItemPerson from './ItemPerson';
+
 //import css
 import '../css/reset.css'
 import '../css/list.css'
 
-const List = () => {
+const List3 = () => {
 
 	/*
 	// 리다이렉트 안됨 (같은 페이지의 리다이렉트는 안된다)
@@ -29,7 +32,7 @@ const List = () => {
 		}).then(response => {
 			console.log(response); //수신데이터
 			setPersonList(response.data.apiData);
-		
+
 		}).catch(error => {
 			console.log(error);
 		});	
@@ -52,7 +55,7 @@ const List = () => {
 
 		axios({
 			method: 'delete', 			// put, post, delete                   
-			url: 'http://localhost:9000/api/persons/' + no,
+			url: `http://localhost:9000/api/persons/${no}`,
 		
 			responseType: 'json' //수신타입
 		}).then(response => {
@@ -60,16 +63,32 @@ const List = () => {
 			console.log(response.data);
 
 			if(response.data.result === 'success') {
-				getPersonList();
+				/*
+				// 리다이렉트 안됨 (같은 페이지의 리다이렉트는 안된다)
+				Navigate("/list");
+				*/
+				// getPersonList();
+
+				// 리스트(배열) personList에서 방금 삭제한 값만 제거된 새로운 배열
+				// 리턴이 있을때만 {} 를 ()로 바꾸고 retrun을 생략할 수 있음
+				let newArray = personList.filter((person) => (
+					person.personId !== no
+				));
+
+				setPersonList(newArray);
+
 			} else {
 				alert(response.data.message);
 			}
 
+			
+		
 		}).catch(error => {
 			console.log(error);
 		});
 		
 	};
+
   
   return (
     <>
@@ -81,28 +100,8 @@ const List = () => {
 
 	{personList.map((personVo) => {
 		return (
-		<div key={personVo.personId}>
-			<table id="list">
-				<tbody>
-					<tr>
-						<th>이름(name)</th>
-						<td>{personVo.name}</td>
-					</tr>
-					<tr>
-						<th>핸드폰(hp)</th>
-						<td>{personVo.hp}</td>
-					</tr>
-					<tr>
-						<th>회사(company)</th>
-						<td>{personVo.company}</td>
-					</tr>
-					<tr>
-						<td><Link to={'/editForm/' + personVo.personId} rel="noreferrer noopener">수정폼으로 이동</Link></td>
-						<td><button type="button" onClick={()=>{handleDel(personVo.personId)}}>삭제</button></td>
-					</tr>
-				</tbody>
-			</table>
-		<br/>
+		<div>
+			<ItemPerson key={personVo.personId} person={personVo} delPerson={handleDel}/>
 		</div>
 		)
 	})}
@@ -113,4 +112,4 @@ const List = () => {
     </>
   );
 };
-export default List;
+export default List3;
